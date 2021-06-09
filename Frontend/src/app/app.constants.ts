@@ -1,0 +1,5 @@
+export const TIM_URL='https://rva-fudbalski-tim.herokuapp.com/tim'
+export const NACIONALNOST_URL='https://rva-fudbalski-tim.herokuapp.com/nacionalnost'
+export const LIGA_URL='https://rva-fudbalski-tim.herokuapp.com/liga'
+export const IGRAC_URL='https://rva-fudbalski-tim.herokuapp.com/igrac'
+export const IGRAC_TIM_URL='https://rva-fudbalski-tim.herokuapp.com/igracTimId'
