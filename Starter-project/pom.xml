@@ -12,7 +12,7 @@
 	<artifactId>BackendRVA</artifactId>
 	<version>0.0</version>
 	<name>BackendRVA</name>
-	<description>inicijalni projekat</description>
+	<description>Starter Project for RVA 2020/2021 Course</description>
 
 	<properties>
 		<java.version>1.8</java.version>
