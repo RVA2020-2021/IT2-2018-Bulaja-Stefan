@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
 
@@ -13,15 +12,13 @@ import java.util.List;
  * The persistent class for the nacionalnost database table.
  * 
  */
-
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler"})
 @Entity
 @NamedQuery(name="Nacionalnost.findAll", query="SELECT n FROM Nacionalnost n")
 public class Nacionalnost implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="NACIONALNOST_ID_GENERATOR", sequenceName="NACIONALNOST_SEQ",allocationSize=1)
+	@SequenceGenerator(name="NACIONALNOST_ID_GENERATOR", sequenceName="NACIONALNOST_SEQ",allocationSize = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="NACIONALNOST_ID_GENERATOR")
 	private Integer id;
 
@@ -29,8 +26,8 @@ public class Nacionalnost implements Serializable {
 
 	private String skracenica;
 
-	@JsonIgnore
 	//bi-directional many-to-one association to Igrac
+	@JsonIgnore
 	@OneToMany(mappedBy="nacionalnost")
 	private List<Igrac> igracs;
 

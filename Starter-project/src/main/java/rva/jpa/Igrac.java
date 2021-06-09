@@ -3,7 +3,7 @@ package rva.jpa;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
 
@@ -12,15 +12,13 @@ import java.util.Date;
  * The persistent class for the igrac database table.
  * 
  */
-
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler"})
 @Entity
 @NamedQuery(name="Igrac.findAll", query="SELECT i FROM Igrac i")
 public class Igrac implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="IGRAC_ID_GENERATOR", sequenceName="IGRAC_SEQ", allocationSize=1)
+	@SequenceGenerator(name="IGRAC_ID_GENERATOR", sequenceName="IGRAC_SEQ",allocationSize = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="IGRAC_ID_GENERATOR")
 	private Integer id;
 
@@ -41,6 +39,7 @@ public class Igrac implements Serializable {
 	private Nacionalnost nacionalnost;
 
 	//bi-directional many-to-one association to Tim
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="tim")
 	private Tim tim;

@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Date;
 import java.util.List;
@@ -14,15 +13,13 @@ import java.util.List;
  * The persistent class for the tim database table.
  * 
  */
-
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler"})
 @Entity
 @NamedQuery(name="Tim.findAll", query="SELECT t FROM Tim t")
 public class Tim implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="TIM_ID_GENERATOR", sequenceName="TIM_SEQ",allocationSize=1)
+	@SequenceGenerator(name="TIM_ID_GENERATOR", sequenceName="TIM_SEQ",allocationSize = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TIM_ID_GENERATOR")
 	private Integer id;
 
@@ -33,8 +30,8 @@ public class Tim implements Serializable {
 
 	private String sediste;
 
-	@JsonIgnore
 	//bi-directional many-to-one association to Igrac
+	@JsonIgnore
 	@OneToMany(mappedBy="tim")
 	private List<Igrac> igracs;
 
